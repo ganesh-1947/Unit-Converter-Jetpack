@@ -1,3 +1,5 @@
+package com.ganesh.unitconverterjetpack.compose
+
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,10 +25,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
-import com.ganesh.unitconverterjetpack.Conversion
+import com.ganesh.unitconverterjetpack.data.Conversion
 
 @Composable
-fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier) {
+fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier, convert: (Conversion) -> Unit) {
 
     var displayingText by remember { mutableStateOf("Select the conversion type") }
     var textFieldsSize by remember { mutableStateOf(Size.Zero) }
@@ -60,6 +62,7 @@ fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier) {
                 DropdownMenuItem(text = { Text(text = conversion.description, fontSize = 18.sp, fontWeight = FontWeight.Bold) }, onClick = {
                     displayingText = conversion.description
                     expanded = false
+                    convert(conversion)
                 })
 
             }

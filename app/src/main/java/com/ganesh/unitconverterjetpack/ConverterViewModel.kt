@@ -1,6 +1,7 @@
 package com.ganesh.unitconverterjetpack
 
 import androidx.lifecycle.ViewModel
+import com.ganesh.unitconverterjetpack.data.Conversion
 
 class ConverterViewModel: ViewModel() {
 

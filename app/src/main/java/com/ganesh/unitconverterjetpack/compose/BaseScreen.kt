@@ -1,3 +1,5 @@
+package com.ganesh.unitconverterjetpack.compose
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -17,6 +19,7 @@ fun BaseScreen(
     Column(
         modifier = modifier.padding(30.dp)
     ) {
+        Spacer(modifier = modifier.height(20.dp))
         TopScreen(list)
         Spacer(modifier = modifier.height(20.dp))
         HistoryScreen()

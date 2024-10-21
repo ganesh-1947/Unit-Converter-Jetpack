@@ -1,4 +1,4 @@
-package com.ganesh.unitconverterjetpack
+package com.ganesh.unitconverterjetpack.data
 
 data class Conversion (
     val id: Int,

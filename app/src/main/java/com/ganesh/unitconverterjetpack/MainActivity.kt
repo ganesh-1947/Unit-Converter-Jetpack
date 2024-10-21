@@ -1,6 +1,6 @@
 package com.ganesh.unitconverterjetpack
 
-import BaseScreen
+import com.ganesh.unitconverterjetpack.compose.BaseScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
