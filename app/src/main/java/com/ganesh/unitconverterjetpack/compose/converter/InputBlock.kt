@@ -1,4 +1,4 @@
-package com.ganesh.unitconverterjetpack.compose
+package com.ganesh.unitconverterjetpack.compose.converter
 
 import android.content.Context
 import android.widget.Toast

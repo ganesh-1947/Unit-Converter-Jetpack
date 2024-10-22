@@ -1,4 +1,4 @@
-package com.ganesh.unitconverterjetpack.compose
+package com.ganesh.unitconverterjetpack.compose.converter
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
