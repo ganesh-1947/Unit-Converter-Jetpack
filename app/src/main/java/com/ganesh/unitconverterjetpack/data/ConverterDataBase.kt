@@ -11,7 +11,7 @@ abstract class ConverterDataBase: RoomDatabase() {
 
     abstract val converterDAO: ConverterDAO
 
-    companion object {
+    /*companion object {
         @Volatile
         private var INSTANCE: ConverterDataBase? = null
         fun getInstance(context: Context): ConverterDataBase {
@@ -23,5 +23,5 @@ abstract class ConverterDataBase: RoomDatabase() {
                 return instance
             }
         }
-    }
+    }*/
 }
