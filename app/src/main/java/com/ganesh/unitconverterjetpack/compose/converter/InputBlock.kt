@@ -29,52 +29,97 @@ import com.ganesh.unitconverterjetpack.data.Conversion
 fun InputBlock(
     conversion: Conversion,
     inputText: MutableState<String>,
+    isLandscape: Boolean,
     modifier: Modifier = Modifier,
     context: Context = LocalContext.current,
     calculate: (String) -> Unit
 ) {
-    Column(modifier = modifier.padding(top = 20.dp)) {
-        Row(modifier.fillMaxWidth()) {
-            TextField(
-                value = inputText.value,
-                onValueChange = { inputText.value = it},
-                modifier = modifier.fillMaxWidth(0.65F),
-                keyboardOptions = KeyboardOptions(
-                    capitalization = KeyboardCapitalization.None,
-                    autoCorrect = true,
-                    keyboardType = KeyboardType.Number
-                ),
-                /*colors = TextFieldDefaults.textFieldColors(
-                    textColor = Color.Black,
-                    containerColor = Color.LightGray,            // Background color in Material3
-                    cursorColor = Color.Blue,
-                    focusedIndicatorColor = Color.Green,
-                    unfocusedIndicatorColor = Color.Red
-                ),*/
-                textStyle = TextStyle(color = Color.DarkGray, fontSize = 30.sp)
-            )
-            Text(text = conversion.convertForm,
-                fontSize = 24.sp,
-                modifier = modifier
-                    .padding(start = 10.dp, top = 30.dp)
-                    .fillMaxWidth(0.35f))
-        }
-
-        Spacer(modifier = modifier.height(20.dp))
-
-        OutlinedButton(onClick = {
-            if (inputText.value != ""){
-                calculate(inputText.value)
-            } else {
-                Toast.makeText(context, "Please enter your value", Toast.LENGTH_SHORT).show()
+    if (isLandscape) {
+        Column(modifier = modifier.padding(top = 20.dp)) {
+            Row {
+                TextField(
+                    value = inputText.value,
+                    onValueChange = { inputText.value = it},
+                    keyboardOptions = KeyboardOptions(
+                        capitalization = KeyboardCapitalization.None,
+                        autoCorrect = true,
+                        keyboardType = KeyboardType.Number
+                    ),
+                    /*colors = TextFieldDefaults.textFieldColors(
+                        textColor = Color.Black,
+                        containerColor = Color.LightGray,            // Background color in Material3
+                        cursorColor = Color.Blue,
+                        focusedIndicatorColor = Color.Green,
+                        unfocusedIndicatorColor = Color.Red
+                    ),*/
+                    textStyle = TextStyle(color = Color.DarkGray, fontSize = 30.sp)
+                )
+                Text(text = conversion.convertForm,
+                    fontSize = 24.sp,
+                    modifier = modifier.padding(start = 10.dp, top = 30.dp)
+                )
             }
-        },
-            modifier = modifier.fillMaxWidth(1f)) {
 
-            Text(text = "Convert", fontSize = 36.sp, fontWeight = FontWeight.Bold, color = Color.Blue)
+            Spacer(modifier = modifier.height(20.dp))
+
+            OutlinedButton(onClick = {
+                if (inputText.value != ""){
+                    calculate(inputText.value)
+                } else {
+                    Toast.makeText(context, "Please enter your value", Toast.LENGTH_SHORT).show()
+                }
+            }
+            ) {
+
+                Text(text = "Convert", fontSize = 36.sp, fontWeight = FontWeight.Bold, color = Color.Blue)
+
+            }
 
         }
+    } else {
+        Column(modifier = modifier.padding(top = 20.dp)) {
+            Row(modifier.fillMaxWidth()) {
+                TextField(
+                    value = inputText.value,
+                    onValueChange = { inputText.value = it},
+                    modifier = modifier.fillMaxWidth(0.65F),
+                    keyboardOptions = KeyboardOptions(
+                        capitalization = KeyboardCapitalization.None,
+                        autoCorrect = true,
+                        keyboardType = KeyboardType.Number
+                    ),
+                    /*colors = TextFieldDefaults.textFieldColors(
+                        textColor = Color.Black,
+                        containerColor = Color.LightGray,            // Background color in Material3
+                        cursorColor = Color.Blue,
+                        focusedIndicatorColor = Color.Green,
+                        unfocusedIndicatorColor = Color.Red
+                    ),*/
+                    textStyle = TextStyle(color = Color.DarkGray, fontSize = 30.sp)
+                )
+                Text(text = conversion.convertForm,
+                    fontSize = 24.sp,
+                    modifier = modifier
+                        .padding(start = 10.dp, top = 30.dp)
+                        .fillMaxWidth(0.35f))
+            }
 
+            Spacer(modifier = modifier.height(20.dp))
+
+            OutlinedButton(onClick = {
+                if (inputText.value != ""){
+                    calculate(inputText.value)
+                } else {
+                    Toast.makeText(context, "Please enter your value", Toast.LENGTH_SHORT).show()
+                }
+            },
+                modifier = modifier.fillMaxWidth(1f)) {
+
+                Text(text = "Convert", fontSize = 36.sp, fontWeight = FontWeight.Bold, color = Color.Blue)
+
+            }
+
+        }
     }
 
 }
